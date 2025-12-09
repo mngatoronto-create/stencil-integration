@@ -1,9 +1,9 @@
 'use client';
+import { CotButton as CotButtonElement, defineCustomElement as defineCotButton } from "@mng/stencil-components/dist/components/cot-button.js";
+import { CotTextbox as CotTextboxElement, defineCustomElement as defineCotTextbox } from "@mng/stencil-components/dist/components/cot-textbox.js";
+import { MyComponent as MyComponentElement, defineCustomElement as defineMyComponent } from "@mng/stencil-components/dist/components/my-component.js";
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';
-import { CotButton as CotButtonElement, defineCustomElement as defineCotButton } from "stencil-components/dist/components/cot-button.js";
-import { CotTextbox as CotTextboxElement, defineCustomElement as defineCotTextbox } from "stencil-components/dist/components/cot-textbox.js";
-import { MyComponent as MyComponentElement, defineCustomElement as defineMyComponent } from "stencil-components/dist/components/my-component.js";
 export const CotButton = createComponent({
     tagName: 'cot-button',
     elementClass: CotButtonElement,

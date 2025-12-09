@@ -1,7 +1,7 @@
+import { CotButton as CotButtonElement } from "@mng/stencil-components/dist/components/cot-button.js";
+import { CotTextbox as CotTextboxElement } from "@mng/stencil-components/dist/components/cot-textbox.js";
+import { MyComponent as MyComponentElement } from "@mng/stencil-components/dist/components/my-component.js";
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
-import { CotButton as CotButtonElement } from "stencil-components/dist/components/cot-button.js";
-import { CotTextbox as CotTextboxElement } from "stencil-components/dist/components/cot-textbox.js";
-import { MyComponent as MyComponentElement } from "stencil-components/dist/components/my-component.js";
 export type CotButtonEvents = NonNullable<unknown>;
 export declare const CotButton: StencilReactComponent<CotButtonElement, CotButtonEvents>;
 export type CotTextboxEvents = NonNullable<unknown>;

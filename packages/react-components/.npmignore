@@ -1,0 +1,13 @@
+src/
+lib/
+__tests__/
+*.log
+*.lock
+node_modules/
+.DS_Store
+.vscode/
+.idea/
+tsconfig.json
+# Keep only dist folder
+!dist/
+

@@ -1,7 +1,7 @@
 {
-  "name": "react-components",
-  "version": "0.0.0",
-  "description": "> TODO: description",
+  "name": "@mng/react-components",
+  "version": "0.0.1",
+  "description": "React wrapper components for @mng/stencil-components",
   "homepage": "",
   "license": "ISC",
   "author": "mnga <mike.ng@toronto.ca>",
@@ -24,8 +24,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@stencil/react-output-target": "^1.2.0",
-    "stencil-components": "*"
+    "@mng/stencil-components": "^0.0.1",
+    "@stencil/react-output-target": "^1.2.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "typescript": "^5.9.3"
