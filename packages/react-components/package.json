@@ -25,6 +25,9 @@
   },
   "dependencies": {
     "@stencil/react-output-target": "^1.2.0",
-    "stencil-components": "workspace:*"
+    "stencil-components": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }

@@ -13,6 +13,6 @@
       "declarationDir": "./dist/types",
       "allowJs": true
     },
-    "include": ["lib/**/*", "src/**/*"],
+    "include": ["lib/**/*", "src/**/*", "index.ts"],
     "exclude": ["node_modules"]
   }
