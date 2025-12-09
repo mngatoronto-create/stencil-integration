@@ -5,6 +5,8 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@jest/transform": "^29.7.0",
+    "@jest/types": "^29.6.3",
     "@types/node": "^24.10.2",
     "lerna": "^9.0.3",
     "typescript": "^5.9.3"

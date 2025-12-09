@@ -10,8 +10,9 @@
       "skipLibCheck": true,
       "jsx": "react",
       "allowSyntheticDefaultImports": true,
-      "declarationDir": "./dist/types"
+      "declarationDir": "./dist/types",
+      "allowJs": true
     },
-    "include": ["lib"],
+    "include": ["lib/**/*", "src/**/*"],
     "exclude": ["node_modules"]
   }
