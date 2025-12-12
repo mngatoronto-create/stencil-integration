@@ -1,17 +1,17 @@
-# Publishing Guide for @mng Packages
+# Publishing Guide for @mnga.toronto Packages
 
-This guide explains how to publish the `@mng/stencil-components` and `@mng/react-components` packages to npm.
+This guide explains how to publish the `@mnga.toronto/stencil-components` and `@mnga.toronto/react-components` packages to npm.
 
 ## Prerequisites
 
 1. **npm Account**: Create an account at [npmjs.com](https://www.npmjs.com/)
 2. **npm Login**: Run `npm login` to authenticate
-3. **Organization (Optional)**: Create an organization named `mng` on npm, or the packages will be published under your personal scope
+3. **Organization (Optional)**: Create an organization named `mnga.toronto` on npm, or the packages will be published under your personal scope
 
 ## Package Structure
 
-- `@mng/stencil-components` - Base Stencil web components
-- `@mng/react-components` - React wrapper components (depends on stencil-components)
+- `@mnga.toronto/stencil-components` - Base Stencil web components
+- `@mnga.toronto/react-components` - React wrapper components (depends on stencil-components)
 
 ## Publishing Process
 
@@ -40,7 +40,7 @@ After publishing stencil-components, update the version in `packages/react-compo
 ```json
 {
   "dependencies": {
-    "@mng/stencil-components": "^0.0.1"
+    "@mnga.toronto/stencil-components": "^0.0.1"
   }
 }
 ```
@@ -81,6 +81,7 @@ lerna publish major  # 0.0.1 -> 1.0.0
 ```
 
 Lerna will:
+
 - Detect which packages have changed
 - Update version numbers
 - Update inter-package dependencies
@@ -90,6 +91,7 @@ Lerna will:
 ## Versioning
 
 Follow [Semantic Versioning](https://semver.org/):
+
 - **MAJOR**: Breaking changes (1.0.0 -> 2.0.0)
 - **MINOR**: New features, backwards compatible (1.0.0 -> 1.1.0)
 - **PATCH**: Bug fixes, backwards compatible (1.0.0 -> 1.0.1)
@@ -110,14 +112,14 @@ After publishing, verify the packages:
 
 ```bash
 # Check if packages are available
-npm info @mng/stencil-components
-npm info @mng/react-components
+npm info @mnga.toronto/stencil-components
+npm info @mnga.toronto/react-components
 
 # Test installation in a new project
 mkdir test-install
 cd test-install
 npm init -y
-npm install @mng/stencil-components @mng/react-components
+npm install @mnga.toronto/stencil-components @mnga.toronto/react-components
 ```
 
 ## Using the Published Packages
@@ -125,11 +127,15 @@ npm install @mng/stencil-components @mng/react-components
 ### In a React Project
 
 ```bash
-npm install @mng/react-components
+npm install @mnga.toronto/react-components
 ```
 
 ```tsx
-import { MyComponent, CotButton, CotTextbox } from '@mng/react-components';
+import {
+  MyComponent,
+  CotButton,
+  CotTextbox,
+} from "@mnga.toronto/react-components";
 
 function App() {
   return (
@@ -145,30 +151,33 @@ function App() {
 ### Using Stencil Components Directly
 
 ```bash
-npm install @mng/stencil-components
+npm install @mnga.toronto/stencil-components
 ```
 
 ```typescript
 // With loader (lazy loading)
-import { defineCustomElements } from '@mng/stencil-components/loader';
+import { defineCustomElements } from "@mnga.toronto/stencil-components/loader";
 defineCustomElements();
 
 // Direct imports
-import { defineCustomElement as defineCotButton } from '@mng/stencil-components/dist/components/cot-button';
+import { defineCustomElement as defineCotButton } from "@mnga.toronto/stencil-components/dist/components/cot-button";
 defineCotButton();
 ```
 
 ## Troubleshooting
 
 ### "Package not found" error
+
 - Ensure you're logged in: `npm whoami`
 - Check package visibility: packages with `@scope` need `--access public`
 
 ### Version conflicts
+
 - Use `npm outdated` to check version mismatches
 - Update dependencies: `npm update`
 
 ### Build failures
+
 - Clear caches: `npm cache clean --force`
 - Delete `node_modules` and `package-lock.json`, then `npm install`
 - Ensure all peer dependencies are installed
@@ -178,7 +187,7 @@ defineCotButton();
 If you need to unpublish a version within 72 hours:
 
 ```bash
-npm unpublish @mng/react-components@0.0.1
+npm unpublish @mnga.toronto/react-components@0.0.1
 ```
 
 **Warning**: Unpublishing can break projects that depend on your package. Only use in emergencies.
@@ -194,7 +203,7 @@ name: Publish Packages
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   publish:
@@ -203,13 +212,12 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          registry-url: 'https://registry.npmjs.org'
-      
+          node-version: "18"
+          registry-url: "https://registry.npmjs.org"
+
       - run: npm install
       - run: npm run build --workspaces
       - run: npm publish --workspaces --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
-
